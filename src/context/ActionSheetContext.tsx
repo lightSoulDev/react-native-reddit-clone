@@ -7,6 +7,8 @@ import {
   useState,
 } from 'react';
 import React from 'react';
+// @ts-ignore [EXPO]
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Actionsheet} from 'native-base';
 
 type Action = {
@@ -47,7 +49,19 @@ export const ActionSheetContextProvider: FC = ({children}) => {
                 option.onPress();
                 destroy();
               }}
-            />
+              startIcon={
+                option.materialIcon ? (
+                  <MaterialCommunityIcons
+                    name={option.materialIcon}
+                    size={25}
+                    color="#2c2c2c"
+                  />
+                ) : (
+                  <></>
+                )
+              }>
+              {option.label}
+            </Actionsheet.Item>
           ))}
         </Actionsheet.Content>
       </Actionsheet>
