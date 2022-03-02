@@ -1,39 +1,23 @@
 import {NativeBaseProvider} from 'native-base';
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  useColorScheme,
-} from 'react-native';
+import {StatusBar, StyleSheet, useColorScheme} from 'react-native';
 import {ActionSheetContextProvider} from './src/context/ActionSheetContext';
-import PostCard from './src/components/PostCard';
+import {Provider as ReduxProvider} from 'react-redux';
+import RootNavigator from './src/navigation/RootNavigator';
+import store from './src/redux/store';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? '#2c2c2c' : '#fff',
-  };
-
   return (
-    <NativeBaseProvider>
-      <SafeAreaView style={backgroundStyle}>
+    <ReduxProvider store={store}>
+      <NativeBaseProvider>
         <ActionSheetContextProvider>
           <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-          <ScrollView
-            contentInsetAdjustmentBehavior="automatic"
-            style={{width: '100%', height: '100%'}}>
-            <PostCard backgroundColor="#aaa" />
-            <PostCard backgroundColor="#aaa" />
-            <PostCard backgroundColor="#aaa" />
-            <PostCard backgroundColor="#aaa" />
-            <PostCard backgroundColor="#aaa" />
-          </ScrollView>
+          <RootNavigator />
         </ActionSheetContextProvider>
-      </SafeAreaView>
-    </NativeBaseProvider>
+      </NativeBaseProvider>
+    </ReduxProvider>
   );
 };
 
