@@ -14,6 +14,11 @@ export const styles = (props: PostCardHeaderProps) =>
     container: {
       flexDirection: 'row',
       alignItems: 'center',
+      marginBottom: 10,
+    },
+    info: {
+      flexDirection: 'row',
+      alignItems: 'center',
     },
     icon: {
       width: 40,

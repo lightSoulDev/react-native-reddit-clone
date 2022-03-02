@@ -21,7 +21,7 @@ const PostCardHeader = (props: PostCardHeaderProps) => {
         <TouchableOpacity>
           <Text>r/react-native</Text>
         </TouchableOpacity>
-        <View style={styles(props).container}>
+        <View style={styles(props).info}>
           <TouchableOpacity>
             <Text>u/lightSoulDev</Text>
           </TouchableOpacity>

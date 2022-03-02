@@ -26,6 +26,10 @@ const App = () => {
             contentInsetAdjustmentBehavior="automatic"
             style={{width: '100%', height: '100%'}}>
             <PostCard backgroundColor="#aaa" />
+            <PostCard backgroundColor="#aaa" />
+            <PostCard backgroundColor="#aaa" />
+            <PostCard backgroundColor="#aaa" />
+            <PostCard backgroundColor="#aaa" />
           </ScrollView>
         </ActionSheetContextProvider>
       </SafeAreaView>
