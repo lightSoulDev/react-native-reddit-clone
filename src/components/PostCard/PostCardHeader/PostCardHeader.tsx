@@ -3,9 +3,9 @@ import React from 'react';
 import {useSheet} from '../../../context/ActionSheetContext';
 // @ts-ignore [EXPO]
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {PostActionSheet} from '../../../mock/Data';
+import {PostActionSheet} from '../../../../mock/Data';
 import {styles} from './styles';
-const MockCommunityIcon = require('./../../../mock/assets/community_icon.png');
+const MockCommunityIcon = require('./../../../../mock/assets/community_icon.png');
 
 export interface PostCardHeaderProps {}
 
