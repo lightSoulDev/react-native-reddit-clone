@@ -18,9 +18,8 @@ export const allNews: Array<IPostData> = [
   {
     id: 'n_1',
     avatarIcon: null,
-    community: 'news',
-    author: 'NewYork Times',
-    extras: 'i.reddit.io',
+    community: 'NewYorkTimes',
+    author: 'whisper',
     publishDate: 1647060518 * 1000,
     upvotes: 40,
     myVote: EVotes.NONE,
