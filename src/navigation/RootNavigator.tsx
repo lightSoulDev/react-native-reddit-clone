@@ -7,10 +7,9 @@ import {
   useColorScheme,
 } from 'react-native';
 import React from 'react';
-import PostCard from '../components/PostCard';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import HomeScreen from '../screens/HomeScreen';
-import NewsScreen from '../screens/NewsScreen';
+import HomeScreen from '../screens/HomeScreen/HomeScreen';
+import NewsScreen from '../screens/NewsScreen/NewsScreen';
 import {NavigationContainer} from '@react-navigation/native';
 // @ts-ignore [EXPO]
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';

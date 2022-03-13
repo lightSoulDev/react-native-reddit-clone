@@ -14,7 +14,7 @@ export interface PostCardHeaderProps {}
 
 const PostCardHeader = (props: PostCardHeaderProps) => {
   const {toggleSheet} = useSheet();
-  const {community, author, extras, publishDate} = usePostContext();
+  const {community, author, extras, publishDate} = usePostContext().postData;
 
   return (
     <View style={styles(props).container}>

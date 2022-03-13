@@ -1,8 +1,8 @@
 import {useColorScheme, SafeAreaView, ScrollView} from 'react-native';
 import React from 'react';
-import PostCard from '../components/PostCard';
-import {newsScreenPosts} from '../../mock/PostDataLists';
-import {IPostData} from '../interfaces/IPostData';
+import PostCard from '../../components/PostCard';
+import {newsScreenPosts} from '../../../mock/PostDataLists';
+import {IPostData} from '../../interfaces/IPostData';
 
 const NewsScreen = () => {
   const isDarkMode = useColorScheme() === 'dark';

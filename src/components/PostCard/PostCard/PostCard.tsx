@@ -1,5 +1,5 @@
-import {View} from 'react-native';
-import React from 'react';
+import {View, Text} from 'react-native';
+import React, {useMemo, useState} from 'react';
 import {styles} from './styles';
 import PostCardHeader from '../PostCardHeader/PostCardHeader';
 import PostCardFooter from '../PostCardFooter/PostCardFooter';
@@ -12,8 +12,12 @@ export interface PostCardProps {
 }
 
 const PostCard = (props: PostCardProps) => {
+  const [postData, setPostData] = useState(props.postData);
+
+  const value = {postData, setPostData};
+
   return (
-    <PostContext.Provider value={props.postData}>
+    <PostContext.Provider value={value}>
       <View style={styles(props).container}>
         <PostCardHeader />
         {/* Awards */}
