@@ -1,12 +1,8 @@
-import {
-  View,
-  Text,
-  useColorScheme,
-  SafeAreaView,
-  ScrollView,
-} from 'react-native';
+import {useColorScheme, SafeAreaView, ScrollView} from 'react-native';
 import React from 'react';
 import PostCard from '../components/PostCard';
+import {homeScreenPosts} from '../../mock/PostDataLists';
+import {IPostData} from '../interfaces/IPostData';
 
 const HomeScreen = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -20,11 +16,9 @@ const HomeScreen = () => {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={{width: '100%', height: '100%'}}>
-        <PostCard backgroundColor="#aaa" />
-        <PostCard backgroundColor="#aaa" />
-        <PostCard backgroundColor="#aaa" />
-        <PostCard backgroundColor="#aaa" />
-        <PostCard backgroundColor="#aaa" />
+        {homeScreenPosts.map((value: IPostData, index: number) => (
+          <PostCard key={index} backgroundColor="#aaa" postData={value} />
+        ))}
       </ScrollView>
     </SafeAreaView>
   );

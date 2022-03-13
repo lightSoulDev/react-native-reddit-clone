@@ -1,4 +1,4 @@
-import {NativeBaseProvider} from 'native-base';
+import {NativeBaseProvider, View} from 'native-base';
 import React from 'react';
 import {StatusBar, StyleSheet, useColorScheme} from 'react-native';
 import {ActionSheetContextProvider} from './src/context/ActionSheetContext';
@@ -22,5 +22,4 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({});
-
 export default App;
