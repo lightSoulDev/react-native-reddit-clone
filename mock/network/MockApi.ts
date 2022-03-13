@@ -5,7 +5,7 @@ import {
   IActionInfo,
   ResponseResult,
 } from '../../src/network/core/Response.types';
-import {homeScreenPosts} from '../PostDataLists';
+import {allPosts, allNews} from '../PostDataLists';
 
 const ping = 0;
 
@@ -38,19 +38,37 @@ export class MockApi extends HttpClient {
     });
   };
 
-  private homeScreenPosts = homeScreenPosts;
+  private representError = async <T = never>(
+    mock: T,
+  ): Promise<AxiosResponse<T, any>> => {
+    return new Promise((_, reject) => {
+      setTimeout(() => {
+        reject();
+      }, ping);
+    });
+  };
 
-  public getPostInfo = () =>
-    this.representResponse<IPostData[]>(this.homeScreenPosts);
+  private allPosts = allPosts;
+  private allNews = allNews;
+
+  public getPosts = () => this.representResponse<IPostData[]>(this.allPosts);
+  public getNews = () => this.representResponse<IPostData[]>(this.allNews);
 
   public postActionVote = (postID: string, up: boolean) => {
-    let post = this.homeScreenPosts.filter(post => (post.id = postID))[0];
-    post.upvotes += up ? 1 : -1;
+    let post = [...allNews, ...allPosts].find(post => post.id == postID);
+
     const actionResponse: IActionInfo<number> = {
       id: postID,
-      result: ResponseResult.SUCCESS,
-      value: post.upvotes,
+      result: ResponseResult.PENDING,
+      value: 0,
     };
+
+    if (!post) return this.representError<IActionInfo<number>>(actionResponse);
+
+    post.upvotes += up ? 1 : -1;
+    actionResponse.value = post.upvotes;
+    actionResponse.result = ResponseResult.SUCCESS;
+
     return this.representResponse<IActionInfo<number>>(actionResponse);
   };
 }

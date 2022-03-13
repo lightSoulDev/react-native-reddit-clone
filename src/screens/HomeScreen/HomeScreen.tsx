@@ -24,7 +24,7 @@ const HomeScreen = () => {
 
   const getPosts = async () => {
     const Api = MockApi.getInstance();
-    let postData: IPostData[] = await Api.getPostInfo();
+    let postData: IPostData[] = await Api.getPosts();
 
     if (!postData || postData.length == 0) {
       // TODO: do sth better

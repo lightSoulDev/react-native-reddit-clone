@@ -16,5 +16,5 @@ export class MainApi extends HttpClient {
     return this.classInstance;
   }
 
-  public getPostInfo = () => this.get<Array<IPostData>>('/posts');
+  public getPosts = () => this.get<Array<IPostData>>('/posts');
 }

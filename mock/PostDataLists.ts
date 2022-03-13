@@ -1,6 +1,7 @@
+import {EVotes} from '../src/interfaces/EVotes';
 import {IPostData} from '../src/interfaces/IPostData';
 
-export const homeScreenPosts: Array<IPostData> = [
+export const allPosts: Array<IPostData> = [
   {
     id: 'p_0',
     avatarIcon: null,
@@ -9,17 +10,19 @@ export const homeScreenPosts: Array<IPostData> = [
     extras: 'i.reddit.io',
     publishDate: 1647146918 * 1000,
     upvotes: 100,
+    myVote: EVotes.NONE,
   },
 ];
 
-export const newsScreenPosts: Array<IPostData> = [
+export const allNews: Array<IPostData> = [
   {
     id: 'n_1',
     avatarIcon: null,
-    community: 'react-js',
-    author: 'lightSoulDev',
+    community: 'news',
+    author: 'NewYork Times',
     extras: 'i.reddit.io',
     publishDate: 1647060518 * 1000,
     upvotes: 40,
+    myVote: EVotes.NONE,
   },
 ];
